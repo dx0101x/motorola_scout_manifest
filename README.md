@@ -1,0 +1,1 @@
+# motorola_scout_manifest
