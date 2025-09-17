@@ -3,15 +3,16 @@
 - Android 15
 
 ## 1. Create folder & sync repo
-<pre>cd ~/
 ```
 mkdir -p scout && cd scout
 ```
-   Then Sync Repo
+# Then Sync Repo
 ```
 repo init -u https://github.com/Notganesh/motorola_scout_manifest -m default.xml
-'''
-   Start Cloning
+```
+   
+# Start Cloning
+   
 ```
 repo sync -j$(nproc)</pre>
 ```
@@ -43,4 +44,3 @@ bazel build //kernel_device_modules-6.1:mgk_64_k61.user</pre>
 ## 6. Clean sources
 ```
 <pre>bazel clean --expunge </pre>
-```
