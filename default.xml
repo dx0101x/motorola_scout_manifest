@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<manifest>
+  <remote  name="aosp" fetch="https://android-review.googlesource.com/" />
+  <default revision="main-kernel-build-2023" remote="aosp" sync-j="4" />
+  <remote name="motorola" fetch="https://github.com/MotorolaMobilityLLC/" />
+
+  <superproject name="kernel/superproject" remote="aosp" revision="common-android14-6.1" />
+
+  <project path="build/kernel" name="kernel/build" >
+    <linkfile src="kleaf/bazel.sh" dest="tools/bazel" />
+    <linkfile src="build_test.sh" dest="build/build_test.sh" />
+    <linkfile src="config.sh" dest="build/config.sh" />
+  </project>
+  <project path="common" name="kernel/common" revision="android14-6.1" />
+  <project path="kernel/configs" name="kernel/configs" revision="main" />
+  <project path="kernel/tests" name="kernel/tests" revision="main" >
+    <linkfile src="tools/run_test_only.sh" dest="run_test_only.sh" />
+    <linkfile src="tools/launch_cvd.sh" dest="launch_cvd.sh" />
+  </project>
+  <project path="common-modules/virtual-device" name="kernel/common-modules/virtual-device" revision="android14-6.1" />
+  <project path="prebuilts/clang/host/linux-x86" name="platform/prebuilts/clang/host/linux-x86" clone-depth="1" />
+  <project path="prebuilts/gcc/linux-x86/host/x86_64-linux-glibc2.17-4.8" name="platform/prebuilts/gcc/linux-x86/host/x86_64-linux-glibc2.17-4.8" clone-depth="1" />
+  <project path="prebuilts/build-tools" name="platform/prebuilts/build-tools" clone-depth="1" />
+  <project path="prebuilts/clang-tools" name="platform/prebuilts/clang-tools" clone-depth="1" />
+  <project path="prebuilts/kernel-build-tools" name="kernel/prebuilts/build-tools" clone-depth="1" />
+  <project path="prebuilts/tradefed" name="platform/tools/tradefederation/prebuilts" revision="main" clone-depth="1" />
+  <project path="prebuilts/asuite" name="platform/prebuilts/asuite" revision="main" clone-depth="1" />
+  <project path="tools/mkbootimg" name="platform/system/tools/mkbootimg" />
+
+  <project path="prebuilts/bazel/linux-x86_64" name="platform/prebuilts/bazel/linux-x86_64" clone-depth="1" />
+  <project path="prebuilts/jdk/jdk11" name="platform/prebuilts/jdk/jdk11" clone-depth="1" />
+  <project path="prebuilts/ndk-r23" name="toolchain/prebuilts/ndk/r23" clone-depth="1" />
+
+  <project path="external/bazel-skylib" name="platform/external/bazel-skylib" />
+  <project path="build/bazel_common_rules" name="platform/build/bazel_common_rules" />
+  <project path="external/stardoc" name="platform/external/stardoc" />
+  <project path="external/python/absl-py" name="platform/external/python/absl-py" />
+
+  <!-- scout kernel sources -->
+  <project path="kernel-6.1" name="kernel-mtk" revision="refs/tags/MMI-V2VC35.33-132-6" remote="motorola">
+    <linkfile src="build.config.constants" dest="build.config.constants" />
+  </project>
+  
+  <project path="kernel_device_modules-6.1" name="kernel-kernel_device_modules-6.1" revision="refs/tags/MMI-V2VC35.33-132-6" remote="motorola">
+    <linkfile src="build.config.scout" dest="build.config" />
+  </project>
+
+  <!-- MediaTek kernel modules -->
+  <project path="vendor/mediatek/kernel_modules/connectivity/common" name="vendor-mediatek-kernel_modules-connectivity-common" revision="refs/tags/MMI-V2VC35.33-132-6" remote="motorola" clone-depth="1" />
+  <project path="vendor/mediatek/kernel_modules/connectivity/wlan/core/gen4m" name="vendor-mediatek-kernel_modules-connectivity-wlan-core-gen4m" revision="refs/tags/MMI-V2VC35.33-132-6" remote="motorola" clone-depth="1" />
+  <project path="vendor/mediatek/kernel_modules/connectivity/gps" name="vendor-mediatek-kernel_modules-connectivity-gps" revision="refs/tags/MMI-V2VC35.33-132-6" remote="motorola" clone-depth="1" />
+  <project path="vendor/mediatek/kernel_modules/connectivity/fmradio" name="vendor-mediatek-kernel_modules-connectivity-fmradio" revision="refs/tags/MMI-V2VC35.33-132-6" remote="motorola" clone-depth="1" />
+  <project path="vendor/mediatek/kernel_modules/connectivity/conninfra" name="vendor-mediatek-kernel_modules-connectivity-conninfra" revision="refs/tags/MMI-V2VC35.33-132-6" remote="motorola" clone-depth="1" />
+  <project path="vendor/mediatek/kernel_modules/connectivity/connfem" name="vendor-mediatek-kernel_modules-connectivity-connfem" revision="refs/tags/MMI-V2VC35.33-132-6" remote="motorola" clone-depth="1" />
+  <project path="vendor/mediatek/kernel_modules/gpu" name="vendor-mediatek-kernel_modules-gpu" revision="refs/tags/MMI-V2VC35.33-132-6" remote="motorola" clone-depth="1" />
+  <project path="vendor/mediatek/kernel_modules/connectivity/wlan/adaptor" name="vendor-mediatek-kernel_modules-connectivity-wlan-adaptor" revision="refs/tags/MMI-V2VC35.33-132-6" remote="motorola" clone-depth="1" />
+  <project path="vendor/mediatek/kernel_modules/connectivity/bt/mt66xx" name="vendor-mediatek-kernel_modules-connectivity-bt-mt66xx" revision="refs/tags/MMI-V2VC35.33-132-6" remote="motorola" clone-depth="1" />
+  <project path="vendor/mediatek/kernel_modules/mtkcam" name="vendor-mediatek-kernel_modules-mtkcam" revision="refs/tags/MMI-V2VC35.33-132-6" remote="motorola" clone-depth="1" />
+  <project path="vendor/mediatek/kernel_modules/hbt_driver_cus" name="vendor-mediatek-kernel_modules-hbt_driver_cus" revision="refs/tags/MMI-V2VC35.33-132-6" remote="motorola" clone-depth="1" />
+  
+  <!-- Motorola kernel modules -->
+  <project path="motorola/kernel/modules" name="motorola-kernel-modules" revision="refs/tags/MMI-V2VC35.33-132-6" remote="motorola" clone-depth="1" />
+  
+  <project path="build/bazel_mgk_rules" name="kernel-build-bazel_mgk_rules" revision="refs/tags/MMI-V2VC35.33-132-6" remote="motorola">
+    <linkfile src="BUILD.bazel" dest="BUILD" />
+    <linkfile src="kleaf/bazel.WORKSPACE" dest="WORKSPACE" />
+  </project>
+</manifest>
