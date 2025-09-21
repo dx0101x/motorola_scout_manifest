@@ -28,10 +28,10 @@ echo "=== [3] Creating symlinks ==="
 ln -sf kernel_device_modules-6.1 kernel_device_modules-mainline
 ln -sf kernel_device_modules-6.1 kernel_device_modules
 
-echo "=== [4] Copying Scout config ==="
+echo "=== [4] Copying nice config ==="
 mkdir -p kernel_device_modules-6.1/kernel/configs/ext_config
 cp -f kernel_device_modules-6.1/arch/arm64/configs/ext_config/moto-mgk_64_k61-nice.config \
-   kernel_device_modules-6.1/kernel/configs/ext_config/moto-mgk_64_k61-scout.config
+   kernel_device_modules-6.1/kernel/configs/ext_config/moto-mgk_64_k61-nice.config
 
 echo "=== [5] Building kernel ==="
 bazel build //kernel-6.1:kernel --//:kernel_version=6.1 --//:internal_config=true

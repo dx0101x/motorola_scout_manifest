@@ -36,13 +36,13 @@
   <project path="external/stardoc" name="platform/external/stardoc" />
   <project path="external/python/absl-py" name="platform/external/python/absl-py" />
 
-  <!-- scout kernel sources -->
+  <!-- nice kernel sources -->
   <project path="kernel-6.1" name="kernel-mtk" revision="refs/tags/MMI-V2VNS35.73-37-2-1" remote="motorola">
     <linkfile src="build.config.constants" dest="build.config.constants" />
   </project>
   
   <project path="kernel_device_modules-6.1" name="kernel-kernel_device_modules-6.1" revision="refs/tags/MMI-V2VNS35.73-37-2-1" remote="motorola">
-    <linkfile src="build.config.scout" dest="build.config" />
+    <linkfile src="build.config.nice" dest="build.config" />
   </project>
 
   <!-- MediaTek kernel modules -->
